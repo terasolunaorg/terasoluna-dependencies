@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.terasoluna.bom</groupId>
   <artifactId>terasoluna-dependencies</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0.RC1</version>
   <packaging>pom</packaging>
   <name>TERASOLUNA Framework for Java (5.x) Dependencies</name>
   <description>TERASOLUNA Framework for Java (5.x) Dependencies</description>
@@ -22,6 +22,13 @@
     <name>terasoluna.org</name>
     <url>http://terasoluna.org</url>
   </organization>
+  <repositories>
+    <repository>
+      <id>repository.spring.milestone</id>
+      <name>Spring Milestone Repository</name>
+      <url>https://repo.spring.io/milestone</url>
+    </repository>
+  </repositories>
   <developers>
     <developer>
       <name>NTT DATA</name>
@@ -49,7 +56,6 @@
     <h2database.version>2.2.224</h2database.version>
     <dozer.version>6.5.2</dozer.version>
     <logback.version>1.3.14</logback.version>
-    <ojdbc.version>23.6.0.24.10</ojdbc.version>
 
     <!-- == Depends only terasoluna-server == -->
     <org.springframework.security.version>5.7.13</org.springframework.security.version>
@@ -71,10 +77,10 @@
     <taglibs-standard.version>1.2.5</taglibs-standard.version>
     <passay.version>1.6.6</passay.version>
     <pdfbox.version>3.0.3</pdfbox.version>
-    <httpclient5.version>5.2.3</httpclient5.version>
+    <httpclient5.version>5.4.1</httpclient5.version>
     <org.apache.cxf.version>3.5.10</org.apache.cxf.version>
     <jakarta.jws.version>2.1.0</jakarta.jws.version>
-    <webdrivermanager.version>5.6.3</webdrivermanager.version>
+    <webdrivermanager.version>5.9.2</webdrivermanager.version>
     <greenmail.version>1.6.15</greenmail.version>
     <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
     <logback-classic-db.version>1.2.11.1</logback-classic-db.version>
@@ -162,12 +168,6 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-dbcp2</artifactId>
         <version>${commons-dbcp2.version}</version>
-          <exclusions>
-            <exclusion>
-              <groupId>commons-logging</groupId>
-              <artifactId>commons-logging</artifactId>
-            </exclusion>
-          </exclusions>
       </dependency>
       <dependency>
           <groupId>org.apache.commons</groupId>
@@ -208,16 +208,6 @@
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
         <version>${logback.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.oracle.database.jdbc</groupId>
-        <artifactId>ojdbc8</artifactId>
-        <version>${ojdbc.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.oracle.database.jdbc</groupId>
-        <artifactId>ojdbc17</artifactId>
-        <version>${ojdbc.version}</version>
       </dependency>
 
       <!-- == Depends only terasoluna-server == -->
@@ -419,12 +409,6 @@
         <groupId>org.codehaus.groovy.modules.http-builder</groupId>
         <artifactId>http-builder</artifactId>
         <version>${http-builder.version}</version>
-          <exclusions>
-            <exclusion>
-              <groupId>commons-logging</groupId>
-              <artifactId>commons-logging</artifactId>
-            </exclusion>
-          </exclusions>
       </dependency>
       <dependency>
         <groupId>ch.qos.logback.contrib</groupId>
