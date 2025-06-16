@@ -34,7 +34,7 @@
   </scm>
   <properties>
     <!-- == Depends terasoluna-server, terasolune-batch == -->
-    <org.springframework.boot.version>3.4.1</org.springframework.boot.version>
+    <org.springframework.boot.version>3.5.0</org.springframework.boot.version>
     <org.mybatis.version>3.5.17</org.mybatis.version>
     <org.mybatis.spring.version>3.0.4</org.mybatis.spring.version>
     <mapstruct.version>1.6.3</mapstruct.version>
@@ -61,7 +61,7 @@
     <greenmail.version>2.1.2</greenmail.version>
     <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
     <logback-classic-db.version>1.2.11.1</logback-classic-db.version>
-    <artemis.version>2.37.0</artemis.version>
+    <artemis.version>2.40.0</artemis.version>
     <httpclient5.version>5.4.2</httpclient5.version>
     <httpcore5.version>5.3.3</httpcore5.version>
 
