@@ -66,19 +66,18 @@
     <httpcore5.version>5.3.3</httpcore5.version>
 
     <!-- == Depends only terasolune-batch == -->
-    <gmongo.version>1.5</gmongo.version>
-    <groovy.version>3.0.23</groovy.version>
+    <groovy.version>4.0.27</groovy.version>
     <http-builder.version>0.7.1</http-builder.version>
     <logback-mongodb-classic.version>0.1.5</logback-mongodb-classic.version>
     <mongo-java-driver.version>2.14.3</mongo-java-driver.version>
     <slf4j-test.version>3.0.1</slf4j-test.version>
-    <spock-core.version>2.3-groovy-3.0</spock-core.version>
-    <spock-reports.version>2.5.1-groovy-3.0</spock-reports.version>
-    <spock-spring.version>2.3-groovy-3.0</spock-spring.version>
+    <spock-core.version>2.3-groovy-4.0</spock-core.version>
+    <spock-reports.version>2.5.1-groovy-4.0</spock-reports.version>
+    <spock-spring.version>2.3-groovy-4.0</spock-spring.version>
 
     <!-- == Maven Plugin Versions == -->
     <org.apache.maven.plugins.maven-gpg-plugin.version>3.0.1</org.apache.maven.plugins.maven-gpg-plugin.version>
-    <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.13</org.sonatype.plugins.nexus-staging-maven-plugin.version>
+    <org.sonatype.central.central-publishing-maven-plugin.version>0.8.0</org.sonatype.central.central-publishing-maven-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -274,42 +273,37 @@
 
       <!-- == Depends only terasolune-batch == -->
       <dependency>
-        <groupId>com.gmongo</groupId>
-        <artifactId>gmongo</artifactId>
-        <version>${gmongo.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy</artifactId>
         <version>${groovy.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy-ant</artifactId>
         <version>${groovy.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy-datetime</artifactId>
         <version>${groovy.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy-dateutil</artifactId>
         <version>${groovy.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy-json</artifactId>
         <version>${groovy.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy-sql</artifactId>
         <version>${groovy.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.groovy</groupId>
+        <groupId>org.apache.groovy</groupId>
         <artifactId>groovy-templates</artifactId>
         <version>${groovy.version}</version>
       </dependency>
@@ -360,17 +354,6 @@
   <profiles>
     <profile>
       <id>central</id>
-      <distributionManagement>
-        <repository>
-          <id>ossrh</id>
-          <url>
-            https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-      </distributionManagement>
       <build>
         <plugins>
           <!-- generate PGP Signature -->
@@ -396,15 +379,14 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
             <version>
-              ${org.sonatype.plugins.nexus-staging-maven-plugin.version}</version>
+              ${org.sonatype.central.central-publishing-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <publishingServerId>central</publishingServerId>
+              <autoPublish>true</autoPublish>
             </configuration>
           </plugin>
         </plugins>
