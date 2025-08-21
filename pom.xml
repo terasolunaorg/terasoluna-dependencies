@@ -34,15 +34,17 @@
     </scm>
     <properties>
         <!-- == Depends terasoluna-server, terasolune-batch == -->
-        <org.springframework.boot.version>3.4.1</org.springframework.boot.version>
+        <org.springframework.boot.version>4.0.0-M1</org.springframework.boot.version>
+        <org.springframework.version>7.0.0-M7</org.springframework.version>
         <org.mybatis.version>3.5.17</org.mybatis.version>
         <org.mybatis.spring.version>3.0.4</org.mybatis.spring.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <dbunit.version>2.8.0</dbunit.version>
-        <jakarta-el-api.version>5.0.1</jakarta-el-api.version>
+        <jakarta-el-api.version>6.0.1</jakarta-el-api.version>
         <commons-io.version>2.18.0</commons-io.version>
         <com.sun.xml.bind.version>4.0.5</com.sun.xml.bind.version>
         <ojdbc.version>23.6.0.24.10</ojdbc.version>
+        <jcl-over-slf4j.version>2.0.17</jcl-over-slf4j.version>
 
         <!-- == Depends only terasoluna-server == -->
         <net.sargue.java-time-jsptags.version>2.0.2</net.sargue.java-time-jsptags.version>
@@ -52,16 +54,16 @@
         <openpdf.version>1.3.35</openpdf.version>
         <poi.version>5.3.0</poi.version>
         <bouncycastle.version>1.79</bouncycastle.version>
-        <jakarta-jsp.version>3.1.1</jakarta-jsp.version>
+        <jakarta-jsp.version>4.0.0</jakarta-jsp.version>
         <passay.version>1.6.6</passay.version>
         <pdfbox.version>3.0.3</pdfbox.version>
         <org.apache.cxf.version>4.1.0</org.apache.cxf.version>
-        <jakarta.jwsf.version>3.0.0</jakarta.jwsf.version>
+        <jakarta.jws.version>3.0.0</jakarta.jws.version>
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
         <greenmail.version>2.1.2</greenmail.version>
         <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
         <logback-classic-db.version>1.2.11.1</logback-classic-db.version>
-        <artemis.version>2.37.0</artemis.version>
+        <artemis.version>2.42.0</artemis.version>
         <httpclient5.version>5.4.2</httpclient5.version>
         <httpcore5.version>5.3.3</httpcore5.version>
 
@@ -88,6 +90,18 @@
                 <version>${org.springframework.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <!-- commons-loggingを抜くために定義している。バージョンはSpring Boot Dependenciesに従う。 -->
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${org.springframework.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -128,6 +142,11 @@
                 <groupId>com.oracle.database.jdbc</groupId>
                 <artifactId>ojdbc17</artifactId>
                 <version>${ojdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${jcl-over-slf4j.version}</version>
             </dependency>
 
             <!-- == Depends only terasoluna-server == -->
@@ -227,7 +246,7 @@
             <dependency>
                 <groupId>jakarta.jws</groupId>
                 <artifactId>jakarta.jws-api</artifactId>
-                <version>${jakarta.jwsf.version}</version>
+                <version>${jakarta.jws.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.bonigarcia</groupId>
@@ -250,6 +269,7 @@
                 <version>${logback-classic-db.version}</version>
             </dependency>
             <dependency>
+                <!-- commons-loggingを抜くために定義している。バージョンはSpring Boot Dependenciesに従う。 -->
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>artemis-server</artifactId>
                 <version>${artemis.version}</version>
@@ -360,8 +380,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>
-              ${org.apache.maven.plugins.maven-gpg-plugin.version}</version>
+                        <version>${org.apache.maven.plugins.maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -381,8 +400,7 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>
-              ${org.sonatype.central.central-publishing-maven-plugin.version}</version>
+                        <version>${org.sonatype.central.central-publishing-maven-plugin.version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
