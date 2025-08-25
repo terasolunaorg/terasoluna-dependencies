@@ -34,7 +34,7 @@
   </scm>
   <properties>
     <!-- == Depends terasoluna-server, terasolune-batch == -->
-    <org.springframework.boot.version>3.5.3</org.springframework.boot.version>
+    <org.springframework.boot.version>3.5.4</org.springframework.boot.version>
     <org.mybatis.version>3.5.17</org.mybatis.version>
     <org.mybatis.spring.version>3.0.4</org.mybatis.spring.version>
     <mapstruct.version>1.6.3</mapstruct.version>
