@@ -34,8 +34,7 @@
     </scm>
     <properties>
         <!-- == Depends terasoluna-server, terasolune-batch == -->
-        <org.springframework.boot.version>4.0.0-M2</org.springframework.boot.version>
-        <org.springframework.version>7.0.0-M8</org.springframework.version>
+        <org.springframework.boot.version>4.0.0-M3</org.springframework.boot.version>
         <org.mybatis.version>3.5.17</org.mybatis.version>
         <org.mybatis.spring.version>3.0.4</org.mybatis.spring.version>
         <mapstruct.version>1.6.3</mapstruct.version>
@@ -44,7 +43,7 @@
         <commons-io.version>2.18.0</commons-io.version>
         <com.sun.xml.bind.version>4.0.5</com.sun.xml.bind.version>
         <ojdbc.version>23.6.0.24.10</ojdbc.version>
-        <jcl-over-slf4j.version>2.0.17</jcl-over-slf4j.version>
+        <log4j-to-slf4j.version>2.25.2</log4j-to-slf4j.version>
 
         <!-- == Depends only terasoluna-server == -->
         <net.sargue.java-time-jsptags.version>2.0.2</net.sargue.java-time-jsptags.version>
@@ -63,7 +62,6 @@
         <greenmail.version>2.1.2</greenmail.version>
         <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
         <logback-classic-db.version>1.2.11.1</logback-classic-db.version>
-        <artemis.version>2.42.0</artemis.version>
         <httpclient5.version>5.4.2</httpclient5.version>
         <httpcore5.version>5.3.3</httpcore5.version>
 
@@ -90,18 +88,6 @@
                 <version>${org.springframework.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <!-- commons-loggingを抜くために定義している。バージョンはSpring Boot Dependenciesに従う。 -->
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${org.springframework.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -144,9 +130,9 @@
                 <version>${ojdbc.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${jcl-over-slf4j.version}</version>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-to-slf4j</artifactId>
+                <version>${log4j-to-slf4j.version}</version>
             </dependency>
 
             <!-- == Depends only terasoluna-server == -->
@@ -164,6 +150,7 @@
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
                 <version>${commons-beanutils.version}</version>
+                <!-- JCL 1.2 -->
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -215,12 +202,6 @@
                 <groupId>org.apache.pdfbox</groupId>
                 <artifactId>pdfbox</artifactId>
                 <version>${pdfbox.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
@@ -252,6 +233,13 @@
                 <groupId>io.github.bonigarcia</groupId>
                 <artifactId>webdrivermanager</artifactId>
                 <version>${webdrivermanager.version}</version>
+                <!-- JCL 1.2 -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>jcl-over-slf4j</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.icegreen</groupId>
@@ -267,18 +255,6 @@
                 <groupId>ch.qos.logback.db</groupId>
                 <artifactId>logback-classic-db</artifactId>
                 <version>${logback-classic-db.version}</version>
-            </dependency>
-            <dependency>
-                <!-- commons-loggingを抜くために定義している。バージョンはSpring Boot Dependenciesに従う。 -->
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>artemis-server</artifactId>
-                <version>${artemis.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents.client5</groupId>
