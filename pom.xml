@@ -34,7 +34,7 @@
     </scm>
     <properties>
         <!-- == Depends terasoluna-server, terasolune-batch == -->
-        <org.springframework.boot.version>4.0.0-M3</org.springframework.boot.version>
+        <org.springframework.boot.version>4.0.0-RC1</org.springframework.boot.version>
         <org.mybatis.version>3.5.17</org.mybatis.version>
         <org.mybatis.spring.version>3.0.4</org.mybatis.spring.version>
         <mapstruct.version>1.6.3</mapstruct.version>
@@ -64,6 +64,7 @@
         <logback-classic-db.version>1.2.11.1</logback-classic-db.version>
         <httpclient5.version>5.4.2</httpclient5.version>
         <httpcore5.version>5.3.3</httpcore5.version>
+        <angus-activation.version>2.0.2</angus-activation.version>
 
         <!-- == Depends only terasolune-batch == -->
         <groovy.version>4.0.27</groovy.version>
@@ -265,6 +266,11 @@
                 <groupId>org.apache.httpcomponents.core5</groupId>
                 <artifactId>httpcore5</artifactId>
                 <version>${httpcore5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.angus</groupId>
+                <artifactId>angus-activation</artifactId>
+                <version>${angus-activation.version}</version>
             </dependency>
 
             <!-- == Depends only terasolune-batch == -->
