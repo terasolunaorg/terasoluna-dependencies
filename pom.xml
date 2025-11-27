@@ -34,7 +34,7 @@
     </scm>
     <properties>
         <!-- == Depends terasoluna-server, terasolune-batch == -->
-        <org.springframework.boot.version>4.0.0-RC1</org.springframework.boot.version>
+        <org.springframework.boot.version>4.0.0</org.springframework.boot.version>
         <org.mybatis.version>3.5.17</org.mybatis.version>
         <org.mybatis.spring.version>3.0.4</org.mybatis.spring.version>
         <mapstruct.version>1.6.3</mapstruct.version>
@@ -43,7 +43,6 @@
         <commons-io.version>2.18.0</commons-io.version>
         <com.sun.xml.bind.version>4.0.5</com.sun.xml.bind.version>
         <ojdbc.version>23.6.0.24.10</ojdbc.version>
-        <log4j-to-slf4j.version>2.25.2</log4j-to-slf4j.version>
 
         <!-- == Depends only terasoluna-server == -->
         <net.sargue.java-time-jsptags.version>2.0.2</net.sargue.java-time-jsptags.version>
@@ -129,11 +128,6 @@
                 <groupId>com.oracle.database.jdbc</groupId>
                 <artifactId>ojdbc17</artifactId>
                 <version>${ojdbc.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-to-slf4j</artifactId>
-                <version>${log4j-to-slf4j.version}</version>
             </dependency>
 
             <!-- == Depends only terasoluna-server == -->
