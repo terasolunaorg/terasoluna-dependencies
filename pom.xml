@@ -34,7 +34,7 @@
     </scm>
     <properties>
         <!-- == Depends terasoluna-server, terasolune-batch == -->
-        <org.springframework.boot.version>4.0.1</org.springframework.boot.version>
+        <org.springframework.boot.version>4.0.2</org.springframework.boot.version>
         <org.mybatis.version>3.5.19</org.mybatis.version>
         <org.mybatis.spring.version>4.0.0</org.mybatis.spring.version>
         <mapstruct.version>1.6.3</mapstruct.version>
@@ -43,7 +43,8 @@
         <commons-io.version>2.20.0</commons-io.version>
         <com.sun.xml.bind.version>4.0.6</com.sun.xml.bind.version>
         <ojdbc.version>23.9.0.25.07</ojdbc.version>
-        <postgresql.version>42.7.8</postgresql.version>
+        <postgresql.version>42.7.9</postgresql.version>
+        <hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
 
         <!-- == Depends only terasoluna-server == -->
         <net.sargue.java-time-jsptags.version>2.0.2</net.sargue.java-time-jsptags.version>
@@ -134,6 +135,12 @@
                 <artifactId>postgresql</artifactId>
                 <!-- override Spring Boot Dependencies -->
                 <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <!-- override Spring Boot Dependencies -->
+                <version>${hibernate-validator.version}</version>
             </dependency>
 
             <!-- == Depends only terasoluna-server == -->
