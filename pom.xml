@@ -42,7 +42,7 @@
         <jakarta-el-api.version>6.0.1</jakarta-el-api.version>
         <commons-io.version>2.20.0</commons-io.version>
         <com.sun.xml.bind.version>4.0.6</com.sun.xml.bind.version>
-        <ojdbc.version>23.9.0.25.07</ojdbc.version>
+        <ojdbc.version>23.26.0.0.0</ojdbc.version>
         <postgresql.version>42.7.9</postgresql.version>
         <hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
 
