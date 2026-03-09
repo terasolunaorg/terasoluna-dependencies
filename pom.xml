@@ -43,7 +43,7 @@
         <commons-io.version>2.20.0</commons-io.version>
         <com.sun.xml.bind.version>4.0.6</com.sun.xml.bind.version>
         <ojdbc.version>23.26.0.0.0</ojdbc.version>
-        <postgresql.version>42.7.8</postgresql.version>
+        <postgresql.version>42.7.9</postgresql.version>
 
         <!-- == Depends only terasoluna-server == -->
         <net.sargue.java-time-jsptags.version>2.0.2</net.sargue.java-time-jsptags.version>
